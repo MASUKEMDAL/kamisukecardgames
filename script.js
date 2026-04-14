@@ -23,3 +23,23 @@ function trocarMidia(botao, index) {
     midias.forEach(m => m.classList.remove("active"));
     midias[index].classList.add("active");
 }
+/* EFEITO 3D DINÂMICO COM MOUSE */
+document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        let rect = card.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+
+        let centerX = rect.width / 2;
+        let centerY = rect.height / 2;
+
+        let rotateX = -(y - centerY) / 10;
+        let rotateY = (x - centerX) / 10;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    });
+});

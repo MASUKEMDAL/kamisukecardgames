@@ -1,40 +1,118 @@
 <!DOCTYPE html>
+<!-- Define que o documento é HTML5 -->
+
 <html lang="pt-br">
+<!-- Define o idioma da página como português do Brasil -->
+
 <head>
     <meta charset="UTF-8">
+    <!-- Permite acentuação e caracteres especiais (ã, ç, etc) -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz o site se adaptar a celular (responsivo) -->
+
     <title>Kamisuke Card Games</title>
+    <!-- Nome que aparece na aba do navegador -->
+
     <link rel="stylesheet" href="style.css">
+    <!-- Importa o arquivo de CSS (estilo do site) -->
 </head>
+
 <body>
+<!-- Tudo que aparece visualmente no site -->
 
 <header>
+    <!-- TOPO DO SITE -->
+
     <div class="logo">
+        <!-- Área da logo -->
+
         <img src="KAMISUKELOG.jpeg" alt="Kamisuke Logo">
+        <!-- Imagem da logo (alt ajuda acessibilidade e SEO) -->
+
         <h1>KAMISUKE CARD GAMES</h1>
+        <!-- Nome da empresa -->
     </div>
 
     <nav>
+        <!-- MENU DE NAVEGAÇÃO -->
+
         <a href="#">Home</a>
+        <!-- Link para o topo -->
+
         <a href="#cards">Cartas</a>
+        <!-- Leva até a seção de cartas -->
+
         <a href="#custom">Personalizado</a>
+        <!-- Leva até pedido personalizado -->
+
         <a href="#contato">Contato</a>
+        <!-- Leva até o rodapé -->
     </nav>
 </header>
 
 <section class="banner">
+    <!-- BANNER PRINCIPAL -->
+
     <h2>Cartas Exclusivas de Anime 🔥</h2>
+    <!-- Texto principal -->
+
     <p>Todas por R$9,99</p>
+    <!-- Subtexto -->
 </section>
 
 <section id="cards" class="cards-container">
+<!-- ÁREA DAS CARTAS -->
 
     <!-- CARD COM MULTIMIDIA -->
     <div class="card">
+        <!-- Card individual -->
+
         <div class="media">
-            <img src="GOJOCARD.jpg" class="active">
-            <img src="GOJO2.jpg">
-            <video src="GOJO.mp4"></video>
+            <!-- Área de imagens/vídeos -->
+
+            <img src="Imagens/Gojo1.jpg" class="active">
+            <!-- Imagem principal (visível por padrão) -->
+
+            <img src="Imagens/Gojo2.png">
+            <!-- Segunda imagem -->
+
+            <video src="Imagens/Gojo3.mp4"></video>
+            <!-- Vídeo do card -->
+        </div>
+
+        <div class="controls">
+            <!-- Botões para trocar mídia -->
+
+            <button onclick="trocarMidia(this, 0)">1</button>
+            <!-- Mostra a primeira mídia -->
+
+            <button onclick="trocarMidia(this, 1)">2</button>
+            <!-- Mostra a segunda mídia -->
+
+            <button onclick="trocarMidia(this, 2)">3</button>
+            <!-- Mostra o vídeo -->
+        </div>
+
+        <p>Satoru Gojo - R$9,99</p>
+        <!-- Nome + preço -->
+
+        <button onclick="comprar('Satoru Gojo')">Comprar</button>
+        <!-- Botão que envia mensagem pro WhatsApp -->
+    </div>
+
+    <div class="card">
+        <!-- Outro card -->
+
+        <div class="media">
+            <img src="Imagens/homelander1.jpg" class="active">
+            <!-- Imagem principal -->
+
+            <img src="Imagens/homelander2.png">
+            <!-- Segunda imagem -->
+
+            <video src="Imagens/homelander3.mp4"></video>
+            <!-- Vídeo do card -->
         </div>
 
         <div class="controls">
@@ -43,65 +121,77 @@
             <button onclick="trocarMidia(this, 2)">3</button>
         </div>
 
-        <p>Satoru Gojo - R$9,99</p>
-        <button onclick="comprar('Satoru Gojo')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="media">
-            <img src="HOMELANDERcard.jpg" class="active">
-            <img src="HOMELANDER2.jpg">
-        </div>
-
-        <div class="controls">
-            <button onclick="trocarMidia(this, 0)">1</button>
-            <button onclick="trocarMidia(this, 1)">2</button>
-        </div>
-
         <p>Homelander - R$9,99</p>
+
         <button onclick="comprar('Homelander')">Comprar</button>
     </div>
 
     <div class="card">
+        <!-- Card simples -->
+
         <div class="media">
             <img src="vegetacard.webp" class="active">
+            <!-- Apenas uma imagem -->
         </div>
 
         <p>Vegeta Majin - R$9,99</p>
+
         <button onclick="comprar('Vegeta Majin')">Comprar</button>
     </div>
 
-    <!-- DUPLICA ESSE BLOCO PARA OS OUTROS CARDS -->
+    <!-- DUPLICAÇÃO -->
+    <!-- Você pode copiar um bloco .card inteiro e só trocar imagem/nome -->
 
 </section>
 
 <section id="custom" class="custom">
+<!-- ÁREA DE CARTA PERSONALIZADA -->
+
     <h2>Carta Personalizada</h2>
+
     <p>R$19,99</p>
+
     <textarea id="descricao" placeholder="Descreva sua carta..."></textarea>
+    <!-- Campo onde o cliente escreve o pedido -->
+
     <button onclick="pedidoPersonalizado()">Enviar Pedido</button>
+    <!-- Envia pedido pro WhatsApp -->
 </section>
 
 <footer id="contato">
+<!-- RODAPÉ DO SITE -->
+
     <div>
         <h3>Contato</h3>
+
         <p>Email: kamisukecardgames@gmail.com</p>
+        <!-- Email da empresa -->
+
         <p>WhatsApp: (34) 99882-9396</p>
+        <!-- Número -->
     </div>
 
     <div>
         <h3>Instagram</h3>
-        <a href="https://instagram.com/kamisukecard" target="_blank">@kamisukecard</a>
+
+        <a href="https://instagram.com/kamisukecard" target="_blank">
+            @kamisukecard
+        </a>
+        <!-- Abre Instagram em nova aba -->
     </div>
 
     <div>
         <h3>Parcerias</h3>
+
         <p>Seja nosso parceiro</p>
     </div>
 
     <p class="copy">© 2026 Kamisuke</p>
+    <!-- Direitos autorais -->
 </footer>
 
 <script src="script.js"></script>
+<!-- Importa o JavaScript (funções do site) -->
+
 </body>
 </html>

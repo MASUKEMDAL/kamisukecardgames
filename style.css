@@ -1,93 +1,155 @@
+/* DEFINE O ESTILO GLOBAL DO SITE */
 body {
-    margin: 0;
-    font-family: Arial;
-    background: #0f0f0f;
-    color: white;
+    margin: 0; /* remove margem padrão do navegador */
+    font-family: Arial; /* define a fonte do site */
+    background: #0f0f0f; /* cor de fundo escura */
+    color: white; /* cor padrão dos textos */
 }
 
-/* HEADER */
+/* HEADER (TOPO DO SITE) */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: #111;
+    display: flex; /* ativa layout flexível (horizontal) */
+    justify-content: space-between; /* separa logo de um lado e menu do outro */
+    align-items: center; /* alinha tudo verticalmente no centro */
+    padding: 15px 30px; /* espaço interno (top/bottom = 15px, lados = 30px) */
+    background: #111; /* fundo escuro */
 }
 
+/* CONTAINER DA LOGO */
 .logo {
-    display: flex;
-    align-items: center;
+    display: flex; /* deixa imagem e texto lado a lado */
+    align-items: center; /* alinha verticalmente */
 }
 
+/* IMAGEM DA LOGO */
 .logo img {
-    width: 50px;
-    margin-right: 10px;
+    width: 500px; /* tamanho da logo */
+    margin-right: 10px; /* espaço entre logo e texto */
 }
 
+/* LINKS DO MENU */
 nav a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
+    margin-left: 20px; /* espaço entre os links */
+    color: white; /* cor do texto */
+    text-decoration: none; /* remove sublinhado */
 }
 
-/* GRID 3 POR LINHA */
+/* GRID DE CARTAS (3 POR LINHA) */
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding: 30px;
+    display: grid; /* ativa sistema de grid */
+    grid-template-columns: repeat(3, 1fr); /* cria 3 colunas iguais */
+    gap: 25px; /* espaço entre os cards */
+    padding: 30px; /* espaço interno */
 }
 
-/* CARD */
+/* CARD INDIVIDUAL */
 .card {
-    background: #1c1c1c;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
+    background: #1c1c1c; /* fundo do card */
+    padding: 15px; /* espaço interno */
+    border-radius: 12px; /* bordas arredondadas */
+    text-align: center; /* centraliza conteúdo */
 }
 
-/* MIDIA */
+/* MIDIAS (IMAGEM E VIDEO) */
 .media img,
 .media video {
-    width: 100%;
-    display: none;
-    border-radius: 10px;
+    width: 100%; /* ocupa toda largura do card */
+    display: none; /* esconde por padrão */
+    border-radius: 10px; /* borda arredondada */
 }
 
+/* MIDIA ATIVA (VISIVEL) */
 .media .active {
-    display: block;
+    display: block; /* mostra somente a mídia ativa */
 }
 
-/* BOTÕES DE MIDIA */
+/* BOTÕES DE TROCA DE MIDIA */
 .controls button {
-    margin: 5px;
-    background: red;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+    margin: 5px; /* espaço entre botões */
+    background: red; /* cor do botão */
+    border: none; /* remove borda padrão */
+    color: white; /* cor do texto */
+    border-radius: 5px; /* arredondamento */
+    cursor: pointer; /* muda cursor pra mãozinha */
 }
 
-/* BOTÃO COMPRAR */
+/* BOTÃO DE COMPRAR */
 .card button {
-    margin-top: 10px;
-    padding: 10px;
-    background: red;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
+    margin-top: 10px; /* espaço acima */
+    padding: 10px; /* espaço interno */
+    background: red; /* cor do botão */
+    border: none; /* remove borda */
+    color: white; /* cor do texto */
+    border-radius: 10px; /* borda arredondada */
+    cursor: pointer; /* cursor clicável */
 }
 
-/* RESPONSIVO */
+/* RESPONSIVIDADE (TABLET) */
 @media(max-width: 900px){
     .cards-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* vira 2 por linha */
     }
 }
 
+/* RESPONSIVIDADE (CELULAR) */
 @media(max-width: 600px){
     .cards-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* vira 1 por linha */
     }
+}
+
+/* ANIMAÇÃO DO CARD (BASE) */
+.card {
+    background: #1c1c1c; /* fundo */
+    padding: 15px; /* espaçamento */
+    border-radius: 12px; /* borda arredondada */
+    text-align: center; /* centraliza */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* animações suaves */
+    transform-style: preserve-3d; /* permite efeito 3D */
+    position: relative; /* necessário para efeitos internos */
+    overflow: hidden; /* esconde elementos que saem do card */
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+.card:hover {
+    transform: scale(1.05) rotateX(5deg) rotateY(-5deg); /* aumenta e inclina */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* brilho vermelho */
+}
+
+/* BRILHO HOLOGRAFICO */
+.card::before {
+    content: ""; /* cria elemento invisível */
+    position: absolute; /* posiciona dentro do card */
+    top: -100%; /* começa fora do card */
+    left: -100%; /* começa fora */
+    width: 200%; /* tamanho grande para cobrir */
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2), /* brilho branco */
+        transparent
+    );
+    transform: rotate(25deg); /* inclinação do brilho */
+    transition: 0.5s; /* velocidade da animação */
+}
+
+/* MOVIMENTO DO BRILHO */
+.card:hover::before {
+    top: 100%; /* move para baixo */
+    left: 100%; /* move para direita */
+}
+
+/* ESTILO DA MIDIA */
+.media img,
+.media video {
+    width: 100%; /* ocupa largura total */
+    border-radius: 10px; /* arredondamento */
+    transition: transform 0.3s; /* animação suave */
+}
+
+/* ZOOM NA MIDIA AO PASSAR O MOUSE */
+.card:hover .media img,
+.card:hover .media video {
+    transform: scale(1.08); /* aumenta levemente */
 }
