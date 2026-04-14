@@ -76,9 +76,6 @@
 
             <img src="Imagens/Gojo2.png">
             <!-- Segunda imagem -->
-
-            <video src="Imagens/Gojo3.mp4"></video>
-            <!-- Vídeo do card -->
         </div>
 
         <div class="controls">
@@ -89,9 +86,6 @@
 
             <button onclick="trocarMidia(this, 1)">2</button>
             <!-- Mostra a segunda mídia -->
-
-            <button onclick="trocarMidia(this, 2)">3</button>
-            <!-- Mostra o vídeo -->
         </div>
 
         <p>Satoru Gojo - R$9,99</p>
@@ -110,15 +104,11 @@
 
             <img src="Imagens/homelander2.png">
             <!-- Segunda imagem -->
-
-            <video src="Imagens/homelander3.mp4"></video>
-            <!-- Vídeo do card -->
         </div>
 
         <div class="controls">
             <button onclick="trocarMidia(this, 0)">1</button>
             <button onclick="trocarMidia(this, 1)">2</button>
-            <button onclick="trocarMidia(this, 2)">3</button>
         </div>
 
         <p>Homelander - R$9,99</p>
@@ -145,17 +135,35 @@
 </section>
 
 <section id="custom" class="custom">
-<!-- ÁREA DE CARTA PERSONALIZADA -->
 
-    <h2>Carta Personalizada</h2>
+    <h2>✨ Carta Personalizada</h2>
 
-    <p>R$19,99</p>
+    <div class="custom-container">
 
-    <textarea id="descricao" placeholder="Descreva sua carta..."></textarea>
-    <!-- Campo onde o cliente escreve o pedido -->
+        <!-- PREVIEW DA CARTA -->
+        <div class="preview">
+            <img src="Imagens/personalizadateste.jpeg" alt="Carta personalizada exemplo">
+            <p class="price">R$19,99</p>
+        </div>
 
-    <button onclick="pedidoPersonalizado()">Enviar Pedido</button>
-    <!-- Envia pedido pro WhatsApp -->
+        <!-- INFORMAÇÕES + FORMULÁRIO -->
+        <div class="custom-info">
+
+            <p class="descricao">
+                PEÇA SUA CARTA PERSONALIZADA COM SUA CARA 🔥<br><br>
+                Basta nos enviar a imagem desejada, os detalhes e características
+                que você quer na carta... e nós criamos um card exclusivo,
+                totalmente do seu jeitinho.
+            </p>
+
+            <textarea id="descricao" placeholder="Ex: Nome do personagem, poderes, estilo (anime, dark, fogo, água...), frase especial..."></textarea>
+
+            <button onclick="pedidoPersonalizado()">🚀 Criar Minha Carta</button>
+
+        </div>
+
+    </div>
+
 </section>
 
 <footer id="contato">
