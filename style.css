@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #111;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+/* GRID 3 POR LINHA */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 30px;
+}
+
+/* CARD */
+.card {
+    background: #1c1c1c;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* MIDIA */
+.media img,
+.media video {
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+}
+
+.media .active {
+    display: block;
+}
+
+/* BOTÕES DE MIDIA */
+.controls button {
+    margin: 5px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* BOTÃO COMPRAR */
+.card button {
+    margin-top: 10px;
+    padding: 10px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* RESPONSIVO */
+@media(max-width: 900px){
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
