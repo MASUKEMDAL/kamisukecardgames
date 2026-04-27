@@ -1,45 +1,50 @@
+function nextSlide(btn) {
+    const media = btn.closest('.carousel').querySelector('.media');
+    const imgs = media.querySelectorAll('img');
+    let activeIndex = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+    
+    imgs[activeIndex].classList.remove('active');
+    activeIndex = (activeIndex + 1) % imgs.length;
+    imgs[activeIndex].classList.add('active');
+}
+
+function prevSlide(btn) {
+    const media = btn.closest('.carousel').querySelector('.media');
+    const imgs = media.querySelectorAll('img');
+    let activeIndex = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+    
+    imgs[activeIndex].classList.remove('active');
+    activeIndex = (activeIndex - 1 + imgs.length) % imgs.length;
+    imgs[activeIndex].classList.add('active');
+}
+
 function comprar(card) {
     let numero = "5534998829396";
-    let mensagem = `Olá! Quero comprar o ${card} por R$9,99`;
-    let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, "_blank");
+    let mensagem = `Olá! Quero comprar o card: ${card}`;
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, "_blank");
 }
 
 function pedidoPersonalizado() {
-    let descricao = document.getElementById("descricao").value;
+    let desc = document.getElementById("descricao").value;
     let numero = "5534998829396";
-
-    let mensagem = `Olá! Quero uma carta personalizada (R$19,99).\nDetalhes: ${descricao}`;
-
-    let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, "_blank");
+    let mensagem = `Olá! Quero uma carta personalizada.\nDetalhes: ${desc}`;
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, "_blank");
+}function nextSlide(btn) { // Função para avançar, recebe o botão clicado como referência
+    const media = btn.closest('.carousel').querySelector('.media'); // Busca a div que contém as imagens deste carrossel
+    const imgs = media.querySelectorAll('img'); // Cria uma lista com todas as imagens encontradas
+    let activeIndex = Array.from(imgs).findIndex(img => img.classList.contains('active')); // Descobre qual é o índice da imagem ativa atual
+    
+    imgs[activeIndex].classList.remove('active'); // Remove a classe active da imagem atual, escondendo-a
+    activeIndex = (activeIndex + 1) % imgs.length; // Calcula o próximo índice (se chegar no final, volta para o 0)
+    imgs[activeIndex].classList.add('active'); // Aplica a classe active na nova imagem, exibindo-a
 }
 
-/* TROCA DE MIDIA */
-function trocarMidia(botao, index) {
-    let card = botao.closest(".card");
-    let midias = card.querySelectorAll(".media img, .media video");
-
-    midias.forEach(m => m.classList.remove("active"));
-    midias[index].classList.add("active");
+function prevSlide(btn) { // Função para retroceder, segue a mesma lógica do avanço
+    const media = btn.closest('.carousel').querySelector('.media'); // Localiza o container de imagens
+    const imgs = media.querySelectorAll('img'); // Lista todas as imagens
+    let activeIndex = Array.from(imgs).findIndex(img => img.classList.contains('active')); // Identifica o índice atual
+    
+    imgs[activeIndex].classList.remove('active'); // Esconde a imagem atual
+    activeIndex = (activeIndex - 1 + imgs.length) % imgs.length; // Calcula o índice anterior (se for 0, volta para a última)
+    imgs[activeIndex].classList.add('active'); // Exibe a imagem anterior
 }
-/* EFEITO 3D DINÂMICO COM MOUSE */
-document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        let rect = card.getBoundingClientRect();
-        let x = e.clientX - rect.left;
-        let y = e.clientY - rect.top;
-
-        let centerX = rect.width / 2;
-        let centerY = rect.height / 2;
-
-        let rotateX = -(y - centerY) / 10;
-        let rotateY = (x - centerX) / 10;
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
-    });
-});

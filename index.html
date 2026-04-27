@@ -1,205 +1,222 @@
 <!DOCTYPE html>
-<!-- Define que o documento é HTML5 -->
-
 <html lang="pt-br">
-<!-- Define o idioma da página como português do Brasil -->
-
 <head>
     <meta charset="UTF-8">
-    <!-- Permite acentuação e caracteres especiais (ã, ç, etc) -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Faz o site se adaptar a celular (responsivo) -->
-
     <title>Kamisuke Card Games</title>
-    <!-- Nome que aparece na aba do navegador -->
-
     <link rel="stylesheet" href="style.css">
-    <!-- Importa o arquivo de CSS (estilo do site) -->
 </head>
-
 <body>
-<!-- Tudo que aparece visualmente no site -->
 
 <header>
-    <!-- TOPO DO SITE -->
-
     <div class="logo">
-        <!-- Área da logo -->
-
         <img src="Imagens/KAMISUKELOG.jpeg" alt="Kamisuke Logo">
-        <!-- Imagem da logo (alt ajuda acessibilidade e SEO) -->
-
-        <h1>KAMISUKE CARD GAMES</h1>
-        <!-- Nome da empresa -->
+        <h1>KAMISUKE</h1>
     </div>
-
     <nav>
-        <!-- MENU DE NAVEGAÇÃO -->
-
         <a href="#">Home</a>
-        <!-- Link para o topo -->
-
         <a href="#cards">Cartas</a>
-        <!-- Leva até a seção de cartas -->
-
         <a href="#custom">Personalizado</a>
-        <!-- Leva até pedido personalizado -->
-
         <a href="#contato">Contato</a>
-        <!-- Leva até o rodapé -->
     </nav>
 </header>
 
 <section class="banner">
-    <!-- BANNER PRINCIPAL -->
+    <div class="banner-content">
+        <h2>🔥 Cartas Exclusivas de Anime</h2>
+        
+        <p class="sub">Colecione, batalhe e transforme suas ideias em cartas lendárias.</p>
+        
+        <p class="price-highlight">A partir de <span>R$9,99</span></p>
 
-    <h2>Cartas Exclusivas de Anime 🔥</h2>
-    <!-- Texto principal -->
-
-    <p>Todas por R$9,99</p>
-    <!-- Subtexto -->
+        <div class="banner-buttons">
+            <a href="#cards" class="btn-primary">🃏 Ver Loja</a>
+            
+            <a href="#custom" class="btn-secondary">✨ Carta Personalizada</a>
+        </div>
+    </div>
 </section>
 
 <section id="cards" class="cards-container">
-<!-- ÁREA DAS CARTAS -->
-
-    <!-- CARD COM MULTIMIDIA -->
     <div class="card">
-        <!-- Card individual -->
-
-        <div class="media">
-            <!-- Área de imagens/vídeos -->
-
-            <img src="Imagens/Gojo1.jpg" class="active">
-            <!-- Imagem principal (visível por padrão) -->
-
-            <img src="Imagens/Gojo2.png">
-            <!-- Segunda imagem -->
+        <div class="carousel" id="car-1">
+            <div class="media">
+                <img src="Imagens/Gojo1.jpg" class="active">
+                <img src="Imagens/Gojo2.png">
+                <img src="Imagens/Gojo3.jpg"> </div>
+            <div class="carousel-controls">
+                <button onclick="prevSlide(this)">❮</button>
+                <button onclick="nextSlide(this)">❯</button>
+            </div>
         </div>
-
-        <div class="controls">
-            <!-- Botões para trocar mídia -->
-
-            <button onclick="trocarMidia(this, 0)">1</button>
-            <!-- Mostra a primeira mídia -->
-
-            <button onclick="trocarMidia(this, 1)">2</button>
-            <!-- Mostra a segunda mídia -->
-        </div>
-
-        <p>Satoru Gojo - R$9,99</p>
-        <!-- Nome + preço -->
-
-        <button onclick="comprar('Satoru Gojo')">Comprar</button>
-        <!-- Botão que envia mensagem pro WhatsApp -->
+        <p class="card-name">Satoru Gojo</p>
+        <p class="card-price">R$9,99</p>
+        <button class="buy-btn" onclick="comprar('Satoru Gojo')">Comprar</button>
     </div>
 
     <div class="card">
-        <!-- Outro card -->
-
-        <div class="media">
-            <img src="Imagens/homelander1.jpg" class="active">
-            <!-- Imagem principal -->
-
-            <img src="Imagens/homelander2.png">
-            <!-- Segunda imagem -->
+        <div class="carousel" id="car-2">
+            <div class="media">
+                <img src="Imagens/homelander1.jpg" class="active">
+                <img src="Imagens/homelander2.png">
+                <img src="Imagens/placeholder.jpg">
+            </div>
+            <div class="carousel-controls">
+                <button onclick="prevSlide(this)">❮</button>
+                <button onclick="nextSlide(this)">❯</button>
+            </div>
         </div>
-
-        <div class="controls">
-            <button onclick="trocarMidia(this, 0)">1</button>
-            <button onclick="trocarMidia(this, 1)">2</button>
-        </div>
-
-        <p>Homelander - R$9,99</p>
-
-        <button onclick="comprar('Homelander')">Comprar</button>
+        <p class="card-name">Homelander</p>
+        <p class="card-price">R$9,99</p>
+        <button class="buy-btn" onclick="comprar('Homelander')">Comprar</button>
     </div>
 
-    <div class="card">
-        <!-- Card simples -->
-
-        <div class="media">
-            <img src="Imagens/vegetacard.webp" class="active">
-            <!-- Apenas uma imagem -->
-        </div>
-
-        <p>Vegeta Majin - R$9,99</p>
-
-        <button onclick="comprar('Vegeta Majin')">Comprar</button>
-    </div>
-
-    <!-- DUPLICAÇÃO -->
-    <!-- Você pode copiar um bloco .card inteiro e só trocar imagem/nome -->
+    <script>
+        // Este script apenas ajuda você a visualizar onde ficam as cartas no seu editor
+        for(let i=3; i<=40; i++) {
+            document.write(`
+            <div class="card">
+                <div class="carousel">
+                    <div class="media">
+                        <img src="Imagens/placeholder.jpg" class="active">
+                        <img src="Imagens/placeholder.jpg">
+                        <img src="Imagens/placeholder.jpg">
+                    </div>
+                    <div class="carousel-controls">
+                        <button onclick="prevSlide(this)">❮</button>
+                        <button onclick="nextSlide(this)">❯</button>
+                    </div>
+                </div>
+                <p class="card-name">Personagem ${i}</p>
+                <p class="card-price">R$9,99</p>
+                <button class="buy-btn" onclick="comprar('Personagem ${i}')">Comprar</button>
+            </div>
+            `);
+        }
+    </script>
 
 </section>
 
 <section id="custom" class="custom">
-
     <h2>✨ Carta Personalizada</h2>
-
+    
     <div class="custom-container">
-
-        <!-- PREVIEW DA CARTA -->
-        <div class="preview">
-            <img src="Imagens/personalizadateste.jpeg" alt="Carta personalizada exemplo">
-            <p class="price">R$19,99</p>
+        
+        <div class="custom-preview-side">
+            <div class="carousel" id="carousel-custom">
+                <div class="media" style="height: 350px;"> <img src="Imagens/--pedro (1).png" class="active">
+                    <img src="Imagens/Ricardo atk.png">
+                    <img src="Imagens/Pedro Elias 1.jpg">
+                    <img src="Imagens/Thalita Chibi 1.png">
+                    <img src="Imagens/Jassone 6.png">
+                    <img src="Imagens/Neves Chapeu.png">
+                    <img src="Imagens/garigas.png">
+                    <img src="Imagens/kaelkakashi.png">
+                    <img src="Imagens/personalizadateste.jpeg">
+                    <img src="Imagens/--kirito-e-sung-jin-wo.png">
+                </div>
+                <div class="carousel-controls">
+                    <button onclick="prevSlide(this)">❮</button>
+                    <button onclick="nextSlide(this)">❯</button>
+                </div>
+            </div>
+            <p class="price-tag">R$39,99</p>
+            <p class="sub-text">Mande sua ideia e criamos o card exclusivo!</p>
         </div>
 
-        <!-- INFORMAÇÕES + FORMULÁRIO -->
-        <div class="custom-info">
+        <div class="custom-form">
+            <div class="input-group">
+                <label>Nome na Carta:</label>
+                <input type="text" id="cust-nome" placeholder="Ex: Masuke Death">
+            </div>
 
-            <p class="descricao">
-                PEÇA SUA CARTA PERSONALIZADA COM SUA CARA 🔥<br><br>
-                Basta nos enviar a imagem desejada, os detalhes e características
-                que você quer na carta... e nós criamos um card exclusivo,
-                totalmente do seu jeitinho.
-            </p>
+            <div class="input-group">
+                <label>Estilo Visual:</label>
+                <select id="cust-estilo">
+                    <option value="Anime">Estilo Anime</option>
+                    <option value="Realista">Estilo Realista / 3D</option>
+                    <option value="Studio">Studio / Minimalista</option>
+                </select>
+            </div>
 
-            <textarea id="descricao" placeholder="Ex: Nome do personagem, poderes, estilo (anime, dark, fogo, água...), frase especial..."></textarea>
+            <div class="input-group">
+                <label>Atributos (Opcional):</label>
+                <textarea id="cust-info" placeholder="Descreva: HP, Atk, Defesa, Habilidades ou frases especiais..."></textarea>
+            </div>
 
-            <button onclick="pedidoPersonalizado()">🚀 Criar Minha Carta</button>
+            <div class="custom-buttons">
+                <button class="btn-whatsapp" onclick="enviarPedido('whatsapp')">🚀 Pedir via WhatsApp</button>
+                <a href="https://instagram.com/kamisukecard" target="_blank" class="btn-instagram">📸 Ver no Instagram</a>
+            </div>
+        </div>
 
+    </div>
+</section>
+
+<section id="partners" class="partners-section">
+    <h2>🤝 Nossos Parceiros</h2>
+
+    <div class="partners-grid">
+        
+        <div class="partner-card">
+            <img src="Imagens/logo-drinks.jpg" alt="Masuke Drinks"> <h3>Masuke Drinks</h3> <a href="https://instagram.com/masukedrinks" target="_blank">@masukedrinks</a> </div>
+
+        <div class="partner-card">
+            <img src="Imagens/logo-mdal.jpg" alt="MDAL">
+            <h3>MDAL</h3>
+            <a href="https://instagram.com/masukemdal" target="_blank">@masukemdal</a>
+        </div>
+
+        <div class="partner-card">
+            <img src="Imagens/logo-burguer.jpg" alt="MDAL Burguer">
+            <h3>MDAL Burguer</h3>
+            <a href="https://instagram.com/mdalburguer" target="_blank">@mdalburguer</a>
+        </div>
+
+        <div class="partner-card">
+            <img src="Imagens/logo-manga.jpg" alt="MDAL Mangá">
+            <h3>MDAL Mangá</h3>
+            <a href="https://instagram.com/mdalmanga" target="_blank">@mdalmanga</a>
         </div>
 
     </div>
 
+    <div class="sponsor-call">
+        <div class="sponsor-content">
+            <h3>Quer ser nosso Parceiro ou Patrocinador?</h3>
+            <p>Sua marca em destaque no universo dos Card Games! Entre em contato conosco.</p>
+            
+            <a href="https://wa.me/5534998829396?text=Olá! Tenho interesse em ser parceiro/patrocinador da Kamisuke." 
+               class="btn-sponsor" target="_blank">🚀 Fale Conosco</a>
+        </div>
+    </div>
 </section>
 
 <footer id="contato">
-<!-- RODAPÉ DO SITE -->
+    <div class="footer-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 40px 5%; background: #111; border-top: 2px solid #ff0000;">
+        
+        <div class="footer-info">
+            <h3>📞 Contatos</h3>
+            <p>WhatsApp: <a href="https://wa.me/5534998829396" style="color: #25d366; text-decoration: none;">(34) 99882-9396</a></p>
+            <p>Email: kamisukecardgames@gmail.com</p>
+        </div>
 
-    <div>
-        <h3>Contato</h3>
+        <div class="footer-social">
+            <h3>📸 Redes Sociais</h3>
+            <p>Instagram: <a href="https://instagram.com/kamisukecard" target="_blank" style="color: #ff3c3c; text-decoration: none;">@kamisukecard</a></p>
+        </div>
 
-        <p>Email: kamisukecardgames@gmail.com</p>
-        <!-- Email da empresa -->
-
-        <p>WhatsApp: (34) 99882-9396</p>
-        <!-- Número -->
+        <div class="footer-about">
+            <h3>⚡ Kamisuke Card Games</h3>
+            <p>Transformando suas ideias em cartas lendárias.</p>
+        </div>
     </div>
-
-    <div>
-        <h3>Instagram</h3>
-
-        <a href="https://instagram.com/kamisukecard" target="_blank">
-            @kamisukecard
-        </a>
-        <!-- Abre Instagram em nova aba -->
+    
+    <div class="copy" style="text-align: center; padding: 20px; background: #000; color: #555; font-size: 0.8rem;">
+        © 2026 Kamisuke Card Games. Criado por Mateus Marques Ferreira.
     </div>
-
-    <div>
-        <h3>Parcerias</h3>
-
-        <p>Seja nosso parceiro</p>
-    </div>
-
-    <p class="copy">© 2026 Kamisuke</p>
-    <!-- Direitos autorais -->
 </footer>
 
 <script src="script.js"></script>
-<!-- Importa o JavaScript (funções do site) -->
-
 </body>
 </html>
