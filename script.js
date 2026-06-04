@@ -35,22 +35,39 @@ function resetHeroTimer() {
 buildHeroDots();
 resetHeroTimer();
 
-/* ---- Category Filter ---- */
+/* ---- Category Filter (accordion) ---- */
 const catTabs = document.querySelectorAll('.cat-tab');
 const cardItems = document.querySelectorAll('.card-item');
+const cardsGrid = document.getElementById('cardsGrid');
+const catalogPlaceholder = document.getElementById('catalogPlaceholder');
+let activeCategory = null;
 
 catTabs.forEach(tab => {
     tab.addEventListener('click', () => {
+        const cat = tab.dataset.category;
+
+        if (activeCategory === cat) {
+            tab.classList.remove('active');
+            activeCategory = null;
+            cardsGrid.classList.remove('visible');
+            catalogPlaceholder.classList.remove('hidden');
+            return;
+        }
+
         catTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        const cat = tab.dataset.category;
+        activeCategory = cat;
+
         cardItems.forEach(card => {
-            if (cat === 'todos' || card.dataset.category === cat) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
+            card.classList.toggle('hidden', card.dataset.category !== cat);
         });
+
+        cardsGrid.classList.add('visible');
+        catalogPlaceholder.classList.add('hidden');
+
+        setTimeout(() => {
+            cardsGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 80);
     });
 });
 

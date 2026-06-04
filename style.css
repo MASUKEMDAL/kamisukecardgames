@@ -463,13 +463,38 @@ a { color: inherit; text-decoration: none; }
     box-shadow: 0 0 16px var(--red-glow);
 }
 
+.catalog-placeholder {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    transition: opacity 0.3s ease;
+}
+.catalog-placeholder.hidden { display: none; }
+.placeholder-icon {
+    font-size: 2.5rem;
+    color: var(--border-hover);
+}
+.catalog-placeholder p {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
 .cards-grid {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
 }
+.cards-grid.visible { display: grid; }
 
 .card-item {
     background: var(--bg-card);
