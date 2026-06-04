@@ -27,6 +27,10 @@
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
         </nav>
+        <button class="cart-btn" id="cartBtn" onclick="openCart()" aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+        </button>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -648,25 +652,71 @@
             </div>
 
             <div class="custom-form">
+                <h4 class="form-title">Solicitar Carta Personalizada</h4>
+
+                <div class="form-rules-box">
+                    <p class="form-rules-title">&#9888; Regras do Pedido — Leia antes de solicitar</p>
+                    <ul>
+                        <li>Não produzimos cartas com conteúdo racista, símbolos de ódio ou material ofensivo de qualquer natureza.</li>
+                        <li>Pedidos que envolvam alta complexidade ou detalhes extremos podem gerar <strong>cobrança de valor extra</strong>, que será informada antes da produção.</li>
+                        <li>Após a arte finalizada, é permitido <strong>apenas 1 ajuste</strong>. Mudanças de conceito após a aprovação não estão incluídas.</li>
+                    </ul>
+                </div>
+
                 <div class="form-group">
-                    <label>Nome na Carta</label>
+                    <label>Nome na Carta <span class="req">*</span></label>
                     <input type="text" id="cust-nome" placeholder="Ex: Masuke Death">
                 </div>
+
                 <div class="form-group">
-                    <label>Estilo Visual</label>
+                    <label>Estilo Visual <span class="req">*</span></label>
                     <select id="cust-estilo">
-                        <option value="Anime">Estilo Anime</option>
-                        <option value="Realista">Estilo Realista / 3D</option>
-                        <option value="Studio">Studio / Minimalista</option>
+                        <option value="">Selecione um estilo...</option>
+                        <option value="Anime Genérico">Anime Genérico</option>
+                        <option value="Estilo Naruto">Estilo Naruto</option>
+                        <option value="Estilo Dragon Ball">Estilo Dragon Ball</option>
+                        <option value="Estilo Demon Slayer">Estilo Demon Slayer</option>
+                        <option value="Estilo One Piece">Estilo One Piece</option>
+                        <option value="Realista / 3D">Realista / 3D</option>
+                        <option value="Studio / Minimalista">Studio / Minimalista</option>
+                        <option value="Outro (descrever abaixo)">Outro (descrever abaixo)</option>
                     </select>
+                    <p class="form-hint">Seja específico! O estilo escolhido aqui é fixado após o início da arte.</p>
                 </div>
+
                 <div class="form-group">
-                    <label>Atributos e Detalhes</label>
-                    <textarea id="cust-info" placeholder="HP, Ataque, Defesa, Habilidades, frases especiais..."></textarea>
+                    <label>Descrição do Personagem <span class="req">*</span></label>
+                    <textarea id="cust-personagem" placeholder="Descreva como é o personagem: aparência, roupas, cabelo, cores, traços marcantes..."></textarea>
                 </div>
+
+                <div class="form-group">
+                    <label>Atributos da Carta (Opcional)</label>
+                    <textarea id="cust-atributos" placeholder="HP, Ataque, Defesa, habilidades especiais, frases na carta..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Referências Visuais (Opcional)</label>
+                    <input type="text" id="cust-ref" placeholder="Links ou descrição de imagens de referência">
+                </div>
+
+                <div class="form-checkboxes">
+                    <label class="check-item">
+                        <input type="checkbox" id="chk-conteudo">
+                        <span>Confirmo que meu pedido <strong>não contém</strong> conteúdo racista, símbolos de ódio ou material ofensivo.</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" id="chk-complexidade">
+                        <span>Estou ciente de que pedidos de alta complexidade podem ter <strong>cobrança extra</strong>, que será comunicada antes da produção.</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" id="chk-ajuste">
+                        <span>Entendo que só tenho direito a <strong>1 ajuste</strong> após a arte finalizada. Mudanças de conceito não estão inclusas.</span>
+                    </label>
+                </div>
+
                 <div class="form-btns">
-                    <button class="btn-whatsapp" onclick="enviarPedido('whatsapp')">Pedir via WhatsApp</button>
-                    <a href="https://instagram.com/kamisukecard" target="_blank" class="btn-instagram">Ver no Instagram</a>
+                    <button class="btn-whatsapp" onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
+                    <a href="https://instagram.com/kamisukecard" target="_blank" class="btn-instagram">Ver Exemplos no Instagram</a>
                 </div>
             </div>
         </div>
@@ -952,5 +1002,34 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+        <h3>Seu Carrinho</h3>
+        <button class="cart-close" onclick="closeCart()" aria-label="Fechar">&#10005;</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+        <div class="cart-empty" id="cartEmpty">
+            <div class="cart-empty-icon">&#9781;</div>
+            <p>Seu carrinho está vazio</p>
+            <span>Adicione cartas do catálogo</span>
+        </div>
+        <ul class="cart-list" id="cartList"></ul>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">R$0,00</strong>
+        </div>
+        <button class="btn-cart-checkout" onclick="cartCheckout()">Finalizar via WhatsApp</button>
+        <button class="btn-cart-clear" onclick="clearCart()">Limpar carrinho</button>
+    </div>
+</aside>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
 </body>
 </html>

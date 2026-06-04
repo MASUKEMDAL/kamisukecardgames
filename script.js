@@ -1,3 +1,7 @@
+/* ================================================
+   KAMISUKE CARD GAMES — Script
+   ================================================ */
+
 /* ---- Hero Carousel ---- */
 const heroSlides = document.querySelectorAll('.hero-slide');
 const heroDotsCont = document.getElementById('heroDots');
@@ -23,9 +27,7 @@ function goHeroSlide(n) {
     resetHeroTimer();
 }
 
-function heroSlide(dir) {
-    goHeroSlide(heroIndex + dir);
-}
+function heroSlide(dir) { goHeroSlide(heroIndex + dir); }
 
 function resetHeroTimer() {
     clearInterval(heroTimer);
@@ -141,14 +143,8 @@ function feedbackSlide(dir) {
     }, 4500);
 }
 
-function initFeedbacks() {
-    feedbackPerView = calcFeedbackPerView();
-    feedbackIndex = 0;
-    if (feedbacksTrack) feedbacksTrack.style.transform = 'translateX(0)';
-    buildFeedbackDots();
-}
-
-initFeedbacks();
+feedbackPerView = calcFeedbackPerView();
+buildFeedbackDots();
 feedbackTimer = setInterval(() => {
     const t = Math.ceil(feedbackCards.length / feedbackPerView);
     goFeedback((feedbackIndex + 1) % t);
@@ -165,13 +161,8 @@ window.addEventListener('resize', () => {
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
 
-hamburger.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-});
-
-function closeMobileNav() {
-    mobileNav.classList.remove('open');
-}
+hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+function closeMobileNav() { mobileNav.classList.remove('open'); }
 
 /* ---- Header scroll effect ---- */
 const header = document.getElementById('header');
@@ -179,21 +170,171 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-/* ---- Buy via WhatsApp ---- */
-function comprar(card) {
-    const num = '5534998829396';
-    const msg = `Olá! Tenho interesse em comprar a carta: ${card}. Poderia me passar mais informações?`;
-    window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
+/* ================================================
+   CART SYSTEM
+   ================================================ */
+let cart = [];
+
+const CARD_PRICE = 19.99;
+
+function openCart() {
+    document.getElementById('cartDrawer').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
 }
 
-/* ---- Custom card order ---- */
+function closeCart() {
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function comprar(cardName) {
+    addToCart(cardName);
+}
+
+function addToCart(cardName) {
+    const existing = cart.find(i => i.name === cardName);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ name: cardName, price: CARD_PRICE, qty: 1 });
+    }
+    renderCart();
+    updateCartBadge();
+    showToast(`"${cardName}" adicionado ao carrinho`);
+}
+
+function removeFromCart(cardName) {
+    cart = cart.filter(i => i.name !== cardName);
+    renderCart();
+    updateCartBadge();
+}
+
+function updateQty(cardName, delta) {
+    const item = cart.find(i => i.name === cardName);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) {
+        removeFromCart(cardName);
+        return;
+    }
+    renderCart();
+    updateCartBadge();
+}
+
+function clearCart() {
+    cart = [];
+    renderCart();
+    updateCartBadge();
+}
+
+function renderCart() {
+    const list = document.getElementById('cartList');
+    const empty = document.getElementById('cartEmpty');
+    const footer = document.getElementById('cartFooter');
+    const totalEl = document.getElementById('cartTotal');
+
+    list.innerHTML = '';
+
+    if (cart.length === 0) {
+        empty.classList.remove('hidden');
+        footer.style.display = 'none';
+        return;
+    }
+
+    empty.classList.add('hidden');
+    footer.style.display = 'flex';
+
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price * item.qty;
+        const li = document.createElement('li');
+        li.className = 'cart-list-item';
+        li.innerHTML = `
+            <div>
+                <p class="cart-item-name">${item.name}</p>
+                <p class="cart-item-price">R$${(item.price * item.qty).toFixed(2).replace('.', ',')}</p>
+            </div>
+            <div class="cart-item-controls">
+                <button class="cart-qty-btn" onclick="updateQty('${item.name}', -1)">−</button>
+                <span class="cart-qty-num">${item.qty}</span>
+                <button class="cart-qty-btn" onclick="updateQty('${item.name}', 1)">+</button>
+                <button class="cart-remove-btn" onclick="removeFromCart('${item.name}')" title="Remover">&#10005;</button>
+            </div>
+        `;
+        list.appendChild(li);
+    });
+
+    totalEl.textContent = `R$${total.toFixed(2).replace('.', ',')}`;
+}
+
+function updateCartBadge() {
+    const badge = document.getElementById('cartBadge');
+    const total = cart.reduce((sum, i) => sum + i.qty, 0);
+    badge.textContent = total;
+    badge.classList.add('pop');
+    setTimeout(() => badge.classList.remove('pop'), 200);
+}
+
+function cartCheckout() {
+    if (cart.length === 0) return;
+    const lines = cart.map(i => `• ${i.name} x${i.qty} — R$${(i.price * i.qty).toFixed(2).replace('.', ',')}`).join('\n');
+    const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const msg = `Olá! Gostaria de fazer um pedido:\n\n${lines}\n\nTotal: R$${total.toFixed(2).replace('.', ',')}\n\nPoderia confirmar disponibilidade e forma de pagamento?`;
+    window.open(`https://wa.me/5534998829396?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ---- Toast notification ---- */
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+/* ---- Custom card order with validation ---- */
 function enviarPedido() {
     const nome = document.getElementById('cust-nome').value.trim();
     const estilo = document.getElementById('cust-estilo').value;
-    const info = document.getElementById('cust-info').value.trim();
+    const personagem = document.getElementById('cust-personagem').value.trim();
+    const atributos = document.getElementById('cust-atributos').value.trim();
+    const ref = document.getElementById('cust-ref').value.trim();
+    const chkConteudo = document.getElementById('chk-conteudo').checked;
+    const chkComplexidade = document.getElementById('chk-complexidade').checked;
+    const chkAjuste = document.getElementById('chk-ajuste').checked;
+
+    if (!nome) { showFormError('Preencha o nome da carta.'); return; }
+    if (!estilo) { showFormError('Selecione o estilo visual.'); return; }
+    if (!personagem) { showFormError('Descreva o personagem para podermos criar a arte.'); return; }
+    if (!chkConteudo) { showFormError('Confirme que o pedido não contém conteúdo ofensivo.'); return; }
+    if (!chkComplexidade) { showFormError('Confirme que está ciente sobre cobranças extras em pedidos complexos.'); return; }
+    if (!chkAjuste) { showFormError('Confirme que está ciente sobre o limite de 1 ajuste.'); return; }
+
     const num = '5534998829396';
-    const msg = `Olá! Quero uma carta personalizada.\n\nNome na carta: ${nome || 'A definir'}\nEstilo: ${estilo}\nDetalhes: ${info || 'Sem detalhes adicionais'}`;
+    const msg = [
+        '🃏 *Pedido de Carta Personalizada — Kamisuke*',
+        '',
+        `*Nome na carta:* ${nome}`,
+        `*Estilo visual:* ${estilo}`,
+        `*Descrição do personagem:* ${personagem}`,
+        atributos ? `*Atributos/detalhes:* ${atributos}` : '',
+        ref ? `*Referências:* ${ref}` : '',
+        '',
+        '✅ Confirmo que o pedido não contém conteúdo ofensivo.',
+        '✅ Estou ciente sobre possível cobrança extra em pedidos complexos.',
+        '✅ Entendo que tenho direito a apenas 1 ajuste após a arte finalizada.',
+    ].filter(Boolean).join('\n');
+
     window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function showFormError(msg) {
+    showToast('⚠ ' + msg);
+    const toast = document.getElementById('toast');
+    toast.style.borderLeftColor = '#f59e0b';
+    setTimeout(() => { toast.style.borderLeftColor = ''; }, 3000);
 }
 
 /* ---- Scroll reveal ---- */
