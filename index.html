@@ -4,748 +4,946 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamisuke Card Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <img src="Imagens/KAMISUKELOG.jpeg" alt="Kamisuke Logo">
-        <h1>KAMISUKE</h1>
+<!-- HEADER -->
+<header id="header">
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <img src="Imagens/KAMISUKELOG.jpeg" alt="Kamisuke Logo">
+            <span class="logo-text">KAMISUKE</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#custom">Personalizados</a>
+            <a href="#feedbacks">Clientes</a>
+            <a href="#hall-fama">Hall da Fama</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#cards">Cartas</a>
-        <a href="#custom">Personalizado</a>
-        <a href="#contato">Contato</a>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#hero" onclick="closeMobileNav()">Home</a>
+        <a href="#catalogo" onclick="closeMobileNav()">Catálogo</a>
+        <a href="#custom" onclick="closeMobileNav()">Personalizados</a>
+        <a href="#feedbacks" onclick="closeMobileNav()">Clientes</a>
+        <a href="#hall-fama" onclick="closeMobileNav()">Hall da Fama</a>
+        <a href="#sobre" onclick="closeMobileNav()">Sobre</a>
+        <a href="#contato" onclick="closeMobileNav()">Contato</a>
     </nav>
 </header>
 
-<section class="banner">
-    <div class="banner-content">
-        <h2>🔥 Cartas Exclusivas de Anime</h2>
-        
-        <p class="sub">Colecione, batalhe e transforme suas ideias em cartas lendárias.</p>
-        
-        <p class="price-highlight">A partir de <span>R$19,99</span></p>
-
-        <div class="banner-buttons">
-            <a href="#cards" class="btn-primary">🃏 Ver Loja</a>
-            
-            <a href="#custom" class="btn-secondary">✨ Carta Personalizada</a>
+<!-- HERO COM CARROSSEL -->
+<section id="hero" class="hero">
+    <div class="hero-carousel">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="--bg: url('Imagens/Gojo1.jpg')">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-badge">Carta em Destaque</p>
+                    <h1 class="hero-title">SATORU GOJO</h1>
+                    <p class="hero-sub">O mais forte de Jujutsu Kaisen. Colecione agora.</p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn-hero-primary">Ver Catálogo</a>
+                        <a href="#custom" class="btn-hero-secondary">Carta Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="--bg: url('Imagens/Vegeta Majin.png')">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-badge">Dragon Ball</p>
+                    <h1 class="hero-title">VEGETA MAJIN</h1>
+                    <p class="hero-sub">O príncipe dos Saiyajins em forma lendária.</p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn-hero-primary">Ver Catálogo</a>
+                        <a href="#custom" class="btn-hero-secondary">Carta Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="--bg: url('Imagens/homelander1.jpg')">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-badge">The Boys</p>
+                    <h1 class="hero-title">HOMELANDER</h1>
+                    <p class="hero-sub">O super-herói mais perigoso do universo.</p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn-hero-primary">Ver Catálogo</a>
+                        <a href="#custom" class="btn-hero-secondary">Carta Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="--bg: url('Imagens/charizard.png')">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-badge">Pokémon</p>
+                    <h1 class="hero-title">CHARIZARD</h1>
+                    <p class="hero-sub">O dragão de fogo mais icônico de todos os tempos.</p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn-hero-primary">Ver Catálogo</a>
+                        <a href="#custom" class="btn-hero-secondary">Carta Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="--bg: url('Imagens/--sasuke.png')">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-badge">Naruto</p>
+                    <h1 class="hero-title">SASUKE UCHIHA</h1>
+                    <p class="hero-sub">O vingador do clã Uchiha. Poder incomparável.</p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn-hero-primary">Ver Catálogo</a>
+                        <a href="#custom" class="btn-hero-secondary">Carta Personalizada</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="hero-arrow hero-prev" onclick="heroSlide(-1)" aria-label="Anterior">&#10094;</button>
+        <button class="hero-arrow hero-next" onclick="heroSlide(1)" aria-label="Próximo">&#10095;</button>
+        <div class="hero-dots" id="heroDots"></div>
+    </div>
+    <div class="hero-stats">
+        <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Cartas Criadas</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">200+</span>
+            <span class="stat-label">Clientes Satisfeitos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Universos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Arte Exclusiva</span>
         </div>
     </div>
 </section>
 
-<section id="cards" class="cards-container">
-    <div class="card">
-        <div class="carousel" id="car-1">
-            <div class="media">
-                <img src="Imagens/Gojo1.jpg" class="active">
-                <img src="Imagens/Gojo2.png">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Satoru Gojo</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Satoru Gojo')">Comprar</button>
+<!-- CATÁLOGO POR CATEGORIA -->
+<section id="catalogo" class="catalogo-section">
+    <div class="section-header">
+        <p class="section-label">Nossa Coleção</p>
+        <h2 class="section-title">CATÁLOGO DE CARTAS</h2>
+        <p class="section-sub">Escolha seu universo favorito e encontre a carta perfeita</p>
     </div>
 
-    <div class="card">
-        <div class="carousel" id="car-2">
-            <div class="media">
-                <img src="Imagens/homelander1.jpg" class="active">
-                <img src="Imagens/homelander2.png">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Homelander</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Homelander')">Comprar</button>
-    </div>
-    
-    <div class="card">
-        <div class="carousel" id="car-3">
-            <div class="media">
-                <img src="Imagens/Vegeta Majin.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Vegeta Majin</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Vegeta Majin')">Comprar</button>
+    <div class="category-tabs">
+        <button class="cat-tab active" data-category="todos">Todos</button>
+        <button class="cat-tab" data-category="dragon-ball">Dragon Ball</button>
+        <button class="cat-tab" data-category="naruto">Naruto</button>
+        <button class="cat-tab" data-category="demon-slayer">Demon Slayer</button>
+        <button class="cat-tab" data-category="the-boys">The Boys</button>
+        <button class="cat-tab" data-category="pokemon">Pokémon</button>
+        <button class="cat-tab" data-category="outros">Outros</button>
     </div>
 
-        <div class="card">
-        <div class="carousel" id="car-4">
-            <div class="media">
-                <img src="Imagens/vegetacard.webp" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Vegeta M</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Vegeta M')">Comprar</button>
-    </div>
-
-            <div class="card">
-        <div class="carousel" id="car-5">
-            <div class="media">
-                <img src="Imagens/UI Goku.webp" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Goku UI</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Goku UI')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="carousel" id="car-6">
-            <div class="media">
-                <img src="Imagens/Trunks Future.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Trunks Future</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Trunks Future')">Comprar</button>
-    </div>
-    
-        <div class="card">
-        <div class="carousel" id="car-7">
-            <div class="media">
-                <img src="Imagens/Sam.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Sam</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Sam')">Comprar</button>
-    </div>
-
-        <div class="card">
-        <div class="carousel" id="car-8">
-            <div class="media">
-                <img src="Imagens/Rocklee.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Rocklee</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Rocklee')">Comprar</button>
-    </div>
-
-
-        <div class="card">
-        <div class="carousel" id="car-9">
-            <div class="media">
-                <img src="Imagens/ZENITSU.jpg" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Zenitsu</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Zenitsu')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="carousel" id="car-10">
-            <div class="media">
-                <img src="Imagens/Killua.jpg" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Killua</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Killua')">Comprar</button>
-    </div>
-    
-    <div class="card">
-        <div class="carousel" id="car-11">
-            <div class="media">
-                <img src="Imagens/Gohan SSJ2.jpg" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Gohan SSJ2</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Gohan SSJ2')">Comprar</button>
-    </div>
-
-
-    <div class="card">
-        <div class="carousel" id="car-12">
-            <div class="media">
-                <img src="Imagens/GOHAN BEAST VINICIUS.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Gohan Beast</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Gohan Beast')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="carousel" id="car-13">
-            <div class="media">
-                <img src="Imagens/GOGETA EX.jpg" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Gogeta EX</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Gogeta EX')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="carousel" id="car-14">
-            <div class="media">
-                <img src="Imagens/Deku Dark.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Deku Dark</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Deku Dark')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="carousel" id="car-15">
-            <div class="media">
-                <img src="Imagens/Bane.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Bane</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Bane')">Comprar</button>
-    </div>
-
-
-    
-    <div class="card">
-        <div class="carousel" id="car-16">
-            <div class="media">
-                <img src="Imagens/Zaheen.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Zaheen</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Zaheen')">Comprar</button>
-    </div>
-
-    <div class="card">
-        <div class="carousel" id="car-17">
-            <div class="media">
-                <img src="Imagens/--kirito-e-sung-jin-wo.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Kirito & Sung Jin-wo</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Kirito')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-18">
-            <div class="media">
-                <img src="Imagens/--goku.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Goku Black</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Goku Black')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-19">
-            <div class="media">
-                <img src="Imagens/--vegeta.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Vegeta Black</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Vegeta Black')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-20">
-            <div class="media">
-                <img src="Imagens/gokuex.jpg" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Goku Ex</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Goku Ex')">Comprar</button>
-    </div>
-
-            <div class="card">
-    <div class="carousel" id="car-21">
-            <div class="media">
-                <img src="Imagens/gokuIC.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Goku IC</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Goku IC')">Comprar</button>
-    </div>
-
-    
-            <div class="card">
-    <div class="carousel" id="car-22">
-            <div class="media">
-                <img src="Imagens/GOKU BLUE.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Goku BLUE</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Goku BLUE')">Comprar</button>
-    </div>
-
-            <div class="card">
-    <div class="carousel" id="car-23">
-            <div class="media">
-                <img src="Imagens/SSB Gogeta.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">SSB Gogeta</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('SSB Gogeta')">Comprar</button>
-    </div>
-
-    <div class="card">
-    <div class="carousel" id="car-24">
-            <div class="media">
-                <img src="Imagens/VEGETA BLUE .png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">VEGETA BLUE</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('VEGETA BLUE')">Comprar</button>
-    </div>
-    
-    <div class="card">
-    <div class="carousel" id="car-25">
-            <div class="media">
-                <img src="Imagens/VEGETA 2 PRONTO.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">VEGETA 2</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('VEGETA 2')">Comprar</button>
-    </div>
-
-    <div class="card">
-    <div class="carousel" id="car-26">
-            <div class="media">
-                <img src="Imagens/piccolokam.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Piccolo</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Piccolo')">Comprar</button>
-    </div>
-
-    <div class="card">
-    <div class="carousel" id="car-27">
-            <div class="media">
-                <img src="Imagens/--zenitsu.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Zenitsu</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Zenitsu')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-28">
-            <div class="media">
-                <img src="Imagens/--sasuke.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Sasuke</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Sasuke')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-29">
-            <div class="media">
-                <img src="Imagens/charizard.png" class="active">
-                <img src="Imagens/charizardyugi.jpeg">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Charizard</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Charizard')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-30">
-            <div class="media">
-                <img src="Imagens/Design sem nome (4).jpg" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Goku SSJ4</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Goku SSJ4')">Comprar</button>
-    </div>
-
-            <div class="card">
-    <div class="carousel" id="car-31">
-            <div class="media">
-                <img src="Imagens/MasukeDeath.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Masuke Death</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Masuke Death')">Comprar</button>
-    </div>
-
-    <div class="card">
-    <div class="carousel" id="car-32">
-            <div class="media">
-                <img src="Imagens/Drakomyugi.jpeg" class="active">
-                <img src="Imagens/Drakom.png">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Drakom</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Drakom')">Comprar</button>
-    </div>
-
-    <div class="card">
-    <div class="carousel" id="car-33">
-            <div class="media">
-                <img src="Imagens/Shizuke.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Shizuke</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Shizuke')">Comprar</button>
-    </div>
-
-    <div class="card">
-    <div class="carousel" id="car-34">
-            <div class="media">
-                <img src="Imagens/Hiroshi.png" class="active">
-                <img src="">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Hiroshi</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Hiroshi')">Comprar</button>
-    </div>
-
-        <div class="card">
-    <div class="carousel" id="car-35">
-            <div class="media">
-                <img src="Imagens/Moshuyugi.jpeg" class="active">
-                <img src="Imagens/Moshu.png">
-            </div>
-            <div class="carousel-controls">
-                <button onclick="prevSlide(this)">❮</button>
-                <button onclick="nextSlide(this)">❯</button>
-            </div>
-        </div>
-        <p class="card-name">Moshu</p>
-        <p class="card-price">R$19,99</p>
-        <button class="buy-btn" onclick="comprar('Moshu')">Comprar</button>
-    </div>
-
-    <script>
-        // Este script apenas ajuda você a visualizar onde ficam as cartas no seu editor
-        for(let i=39; i<=40; i++) {
-            document.write(`
-            <div class="card">
-                <div class="carousel">
-                    <div class="media">
-                        <img src="Imagens/placeholder.jpg" class="active">
-                        <img src="Imagens/placeholder.jpg">
-                        <img src="Imagens/placeholder.jpg">
-                    </div>
-                    <div class="carousel-controls">
-                        <button onclick="prevSlide(this)">❮</button>
-                        <button onclick="nextSlide(this)">❯</button>
-                    </div>
-                </div>
-                <p class="card-name">Personagem ${i}</p>
+    <div class="cards-grid" id="cardsGrid">
+        <!-- Dragon Ball -->
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/Vegeta Majin.png" alt="Vegeta Majin">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Vegeta Majin</h3>
                 <p class="card-price">R$19,99</p>
-                <button class="buy-btn" onclick="comprar('Personagem ${i}')">Comprar</button>
-            </div>
-            `);
-        }
-    </script>
-
-</section>
-
-<section id="custom" class="custom">
-    <h2>✨ Carta Personalizada</h2>
-    
-    <div class="custom-container">
-        
-        <div class="custom-preview-side">
-            <div class="carousel" id="carousel-custom">
-                <div class="media" style="height: 350px;"> <img src="Imagens/--pedro (1).png" class="active">
-                    <img src="Imagens/Ricardo atk.png">
-                    <img src="Imagens/Pedro Elias 1.jpg">
-                    <img src="Imagens/Thalita Chibi 1.png">
-                    <img src="Imagens/Jassone 6.png">
-                    <img src="Imagens/Neves Chapeu.png">
-                    <img src="Imagens/garigas.png">
-                    <img src="Imagens/kaelkakashi.png">
-                    <img src="Imagens/personalizadateste.jpeg">
-                    <img src="Imagens/--kirito-e-sung-jin-wo.png">
-                </div>
-                <div class="carousel-controls">
-                    <button onclick="prevSlide(this)">❮</button>
-                    <button onclick="nextSlide(this)">❯</button>
-                </div>
-            </div>
-            <p class="price-tag">R$39,99</p>
-            <p class="sub-text">Mande sua ideia e criamos o card exclusivo!</p>
-        </div>
-
-        <div class="custom-form">
-            <div class="input-group">
-                <label>Nome na Carta:</label>
-                <input type="text" id="cust-nome" placeholder="Ex: Masuke Death">
-            </div>
-
-            <div class="input-group">
-                <label>Estilo Visual:</label>
-                <select id="cust-estilo">
-                    <option value="Anime">Estilo Anime</option>
-                    <option value="Realista">Estilo Realista / 3D</option>
-                    <option value="Studio">Studio / Minimalista</option>
-                </select>
-            </div>
-
-            <div class="input-group">
-                <label>Atributos (Opcional):</label>
-                <textarea id="cust-info" placeholder="Descreva: HP, Atk, Defesa, Habilidades ou frases especiais..."></textarea>
-            </div>
-
-            <div class="custom-buttons">
-                <button class="btn-whatsapp" onclick="enviarPedido('whatsapp')">🚀 Pedir via WhatsApp</button>
-                <a href="https://instagram.com/kamisukecard" target="_blank" class="btn-instagram">📸 Ver no Instagram</a>
+                <button class="btn-buy" onclick="comprar('Vegeta Majin')">Comprar via WhatsApp</button>
             </div>
         </div>
 
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/UI Goku.webp" alt="Goku UI">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Goku Ultra Instinct</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Goku UI')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/Trunks Future.png" alt="Trunks Future">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Trunks do Futuro</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Trunks Future')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/Gohan SSJ2.jpg" alt="Gohan SSJ2">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Gohan SSJ2</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Gohan SSJ2')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/GOHAN BEAST VINICIUS.png" alt="Gohan Beast">
+                <div class="card-badge">Dragon Ball</div>
+                <div class="card-hot">HOT</div>
+            </div>
+            <div class="card-info">
+                <h3>Gohan Beast</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Gohan Beast')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/GOGETA EX.jpg" alt="Gogeta EX">
+                <div class="card-badge">Dragon Ball</div>
+                <div class="card-hot">HOT</div>
+            </div>
+            <div class="card-info">
+                <h3>Gogeta EX</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Gogeta EX')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/--goku.png" alt="Goku Black">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Goku Black</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Goku Black')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/--vegeta.png" alt="Vegeta Black">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Vegeta Black</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Vegeta Black')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/gokuex.jpg" alt="Goku Ex">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Goku EX</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Goku Ex')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/gokuIC.png" alt="Goku IC">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Goku IC</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Goku IC')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/GOKU BLUE.png" alt="Goku Blue">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Goku Blue</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Goku BLUE')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/SSB Gogeta.png" alt="SSB Gogeta">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>SSB Gogeta</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('SSB Gogeta')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/VEGETA BLUE .png" alt="Vegeta Blue">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Vegeta Blue</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('VEGETA BLUE')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/VEGETA 2 PRONTO.png" alt="Vegeta 2">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Vegeta 2</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('VEGETA 2')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/piccolokam.png" alt="Piccolo">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Piccolo</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Piccolo')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/vegetacard.webp" alt="Vegeta M">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Vegeta M</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Vegeta M')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="dragon-ball">
+            <div class="card-media">
+                <img src="Imagens/Design sem nome (4).jpg" alt="Goku SSJ4">
+                <div class="card-badge">Dragon Ball</div>
+            </div>
+            <div class="card-info">
+                <h3>Goku SSJ4</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Goku SSJ4')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Naruto -->
+        <div class="card-item" data-category="naruto">
+            <div class="card-media">
+                <img src="Imagens/Rocklee.png" alt="Rock Lee">
+                <div class="card-badge naruto">Naruto</div>
+            </div>
+            <div class="card-info">
+                <h3>Rock Lee</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Rocklee')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="naruto">
+            <div class="card-media">
+                <img src="Imagens/--sasuke.png" alt="Sasuke">
+                <div class="card-badge naruto">Naruto</div>
+                <div class="card-hot">TOP</div>
+            </div>
+            <div class="card-info">
+                <h3>Sasuke Uchiha</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Sasuke')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Demon Slayer -->
+        <div class="card-item" data-category="demon-slayer">
+            <div class="card-media">
+                <img src="Imagens/ZENITSU.jpg" alt="Zenitsu">
+                <div class="card-badge demon">Demon Slayer</div>
+            </div>
+            <div class="card-info">
+                <h3>Zenitsu Agatsuma</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Zenitsu')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="demon-slayer">
+            <div class="card-media">
+                <img src="Imagens/--zenitsu.png" alt="Zenitsu 2">
+                <div class="card-badge demon">Demon Slayer</div>
+            </div>
+            <div class="card-info">
+                <h3>Zenitsu v2</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Zenitsu v2')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- The Boys -->
+        <div class="card-item" data-category="the-boys">
+            <div class="card-media">
+                <img src="Imagens/homelander1.jpg" alt="Homelander">
+                <div class="card-badge boys">The Boys</div>
+                <div class="card-hot">TOP</div>
+            </div>
+            <div class="card-info">
+                <h3>Homelander</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Homelander')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Pokemon -->
+        <div class="card-item" data-category="pokemon">
+            <div class="card-media">
+                <img src="Imagens/charizard.png" alt="Charizard">
+                <div class="card-badge poke">Pokémon</div>
+                <div class="card-hot">TOP</div>
+            </div>
+            <div class="card-info">
+                <h3>Charizard</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Charizard')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Outros / JJK -->
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Gojo1.jpg" alt="Satoru Gojo">
+                <div class="card-badge outros">JJK</div>
+                <div class="card-hot">TOP</div>
+            </div>
+            <div class="card-info">
+                <h3>Satoru Gojo</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Satoru Gojo')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Killua.jpg" alt="Killua">
+                <div class="card-badge outros">HxH</div>
+            </div>
+            <div class="card-info">
+                <h3>Killua Zoldyck</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Killua')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Deku Dark.png" alt="Deku Dark">
+                <div class="card-badge outros">MHA</div>
+            </div>
+            <div class="card-info">
+                <h3>Deku Dark</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Deku Dark')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/--kirito-e-sung-jin-wo.png" alt="Kirito e Sung Jin-woo">
+                <div class="card-badge outros">Crossover</div>
+                <div class="card-hot">RARO</div>
+            </div>
+            <div class="card-info">
+                <h3>Kirito & Sung Jin-woo</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Kirito e Sung Jin-woo')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Bane.png" alt="Bane">
+                <div class="card-badge outros">DC</div>
+            </div>
+            <div class="card-info">
+                <h3>Bane</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Bane')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Sam.png" alt="Sam">
+                <div class="card-badge outros">Especial</div>
+            </div>
+            <div class="card-info">
+                <h3>Sam</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Sam')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Zaheen.png" alt="Zaheen">
+                <div class="card-badge outros">Especial</div>
+            </div>
+            <div class="card-info">
+                <h3>Zaheen</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Zaheen')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/MasukeDeath.png" alt="Masuke Death">
+                <div class="card-badge outros">Original</div>
+                <div class="card-hot">EXCLUSIVO</div>
+            </div>
+            <div class="card-info">
+                <h3>Masuke Death</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Masuke Death')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Drakomyugi.jpeg" alt="Drakom">
+                <div class="card-badge outros">Original</div>
+                <div class="card-hot">EXCLUSIVO</div>
+            </div>
+            <div class="card-info">
+                <h3>Drakom</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Drakom')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Shizuke.png" alt="Shizuke">
+                <div class="card-badge outros">Original</div>
+            </div>
+            <div class="card-info">
+                <h3>Shizuke</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Shizuke')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Hiroshi.png" alt="Hiroshi">
+                <div class="card-badge outros">Original</div>
+            </div>
+            <div class="card-info">
+                <h3>Hiroshi</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Hiroshi')">Comprar via WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="card-item" data-category="outros">
+            <div class="card-media">
+                <img src="Imagens/Moshuyugi.jpeg" alt="Moshu">
+                <div class="card-badge outros">Original</div>
+            </div>
+            <div class="card-info">
+                <h3>Moshu</h3>
+                <p class="card-price">R$19,99</p>
+                <button class="btn-buy" onclick="comprar('Moshu')">Comprar via WhatsApp</button>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="partners" class="partners-section">
-    <h2>🤝 Nossos Parceiros</h2>
+<!-- CARTAS PERSONALIZADAS -->
+<section id="custom" class="custom-section">
+    <div class="custom-bg-deco"></div>
+    <div class="section-header light">
+        <p class="section-label">Arte Exclusiva</p>
+        <h2 class="section-title">CARTAS PERSONALIZADAS</h2>
+        <p class="section-sub">Transforme sua ideia em uma carta lendária e única no mundo</p>
+    </div>
 
-    <div class="partners-grid">
-        
-        <div class="partner-card">
-            <img src="Imagens/logo-drinks.jpg" alt="Masuke Drinks"> <h3>Masuke Drinks</h3> <a href="https://instagram.com/masukedrinks" target="_blank">@masukedrinks</a> </div>
+    <div class="custom-inner">
+        <div class="custom-showcase">
+            <div class="showcase-track" id="showcaseTrack">
+                <img src="Imagens/--pedro (1).png" alt="Personalizada">
+                <img src="Imagens/Ricardo atk.png" alt="Personalizada">
+                <img src="Imagens/Pedro Elias 1.jpg" alt="Personalizada">
+                <img src="Imagens/Thalita Chibi 1.png" alt="Personalizada">
+                <img src="Imagens/Jassone 6.png" alt="Personalizada">
+                <img src="Imagens/Neves Chapeu.png" alt="Personalizada">
+                <img src="Imagens/garigas.png" alt="Personalizada">
+                <img src="Imagens/kaelkakashi.png" alt="Personalizada">
+                <img src="Imagens/personalizadateste.jpeg" alt="Personalizada">
+            </div>
+            <button class="showcase-arrow left" onclick="showcaseSlide(-1)">&#10094;</button>
+            <button class="showcase-arrow right" onclick="showcaseSlide(1)">&#10095;</button>
+            <div class="showcase-price-tag">
+                <span class="showcase-from">A partir de</span>
+                <span class="showcase-price">R$39,99</span>
+            </div>
+        </div>
 
-        <div class="partner-card">
-            <img src="Imagens/logo-mdal.jpg" alt="MDAL">
+        <div class="custom-highlights">
+            <div class="highlight-item">
+                <div class="highlight-icon">&#9733;</div>
+                <div>
+                    <h4>Arte 100% Exclusiva</h4>
+                    <p>Criada do zero para você</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">&#9998;</div>
+                <div>
+                    <h4>Você escolhe tudo</h4>
+                    <p>Nome, atributos, habilidades e estilo</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">&#9993;</div>
+                <div>
+                    <h4>Entrega Rápida</h4>
+                    <p>Arte finalizada em poucos dias</p>
+                </div>
+            </div>
+
+            <div class="custom-form">
+                <div class="form-group">
+                    <label>Nome na Carta</label>
+                    <input type="text" id="cust-nome" placeholder="Ex: Masuke Death">
+                </div>
+                <div class="form-group">
+                    <label>Estilo Visual</label>
+                    <select id="cust-estilo">
+                        <option value="Anime">Estilo Anime</option>
+                        <option value="Realista">Estilo Realista / 3D</option>
+                        <option value="Studio">Studio / Minimalista</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Atributos e Detalhes</label>
+                    <textarea id="cust-info" placeholder="HP, Ataque, Defesa, Habilidades, frases especiais..."></textarea>
+                </div>
+                <div class="form-btns">
+                    <button class="btn-whatsapp" onclick="enviarPedido('whatsapp')">Pedir via WhatsApp</button>
+                    <a href="https://instagram.com/kamisukecard" target="_blank" class="btn-instagram">Ver no Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEEDBACKS -->
+<section id="feedbacks" class="feedbacks-section">
+    <div class="section-header">
+        <p class="section-label">O que dizem</p>
+        <h2 class="section-title">NOSSOS CLIENTES</h2>
+        <p class="section-sub">Quem recebeu uma Kamisuke Card nunca esquece</p>
+    </div>
+
+    <div class="feedbacks-track-wrapper">
+        <div class="feedbacks-track" id="feedbacksTrack">
+            <div class="feedback-card">
+                <div class="feedback-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="feedback-text">"Cara, a carta ficou INCRÍVEL! Muito melhor do que eu esperava. Arte perfeita, detalhes impecáveis. Com certeza vou pedir mais!"</p>
+                <div class="feedback-author">
+                    <div class="feedback-avatar">R</div>
+                    <div>
+                        <p class="feedback-name">Ricardo</p>
+                        <a href="https://instagram.com/ricardoplaceholder" target="_blank" class="feedback-ig">@ricardoplaceholder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="feedback-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="feedback-text">"Pedi uma carta personalizada com meu personagem favorito e o resultado superou tudo. Parece uma carta oficial! Super recomendo a Kamisuke."</p>
+                <div class="feedback-author">
+                    <div class="feedback-avatar">P</div>
+                    <div>
+                        <p class="feedback-name">Pedro Elias</p>
+                        <a href="https://instagram.com/pedroplaceholder" target="_blank" class="feedback-ig">@pedroplaceholder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="feedback-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="feedback-text">"Presenteei meu namorado com uma carta personalizada dele. Ele ficou em choque! Ele ama anime e disse que foi o presente mais criativo que já recebeu."</p>
+                <div class="feedback-author">
+                    <div class="feedback-avatar">T</div>
+                    <div>
+                        <p class="feedback-name">Thalita</p>
+                        <a href="https://instagram.com/thalitaplaceholder" target="_blank" class="feedback-ig">@thalitaplaceholder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="feedback-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="feedback-text">"Comprei várias cartas do catálogo e cada uma é uma obra de arte. O acabamento é de altíssima qualidade. Valeu muito o investimento!"</p>
+                <div class="feedback-author">
+                    <div class="feedback-avatar">J</div>
+                    <div>
+                        <p class="feedback-name">Jassone</p>
+                        <a href="https://instagram.com/jassoneplaceholder" target="_blank" class="feedback-ig">@jassoneplaceholder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="feedback-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="feedback-text">"Atendimento nota 10, entrega rápida e o produto é simplesmente lindo demais. Minha coleção ficou completa com as cartas da Kamisuke!"</p>
+                <div class="feedback-author">
+                    <div class="feedback-avatar">K</div>
+                    <div>
+                        <p class="feedback-name">Kael</p>
+                        <a href="https://instagram.com/kaelplaceholder" target="_blank" class="feedback-ig">@kaelplaceholder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-card">
+                <div class="feedback-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="feedback-text">"Nunca pensei que uma carta de colecionador pudesse ser tão personalizada. Fiz com meu personagem, meu nome e minhas habilidades. Único no mundo!"</p>
+                <div class="feedback-author">
+                    <div class="feedback-avatar">N</div>
+                    <div>
+                        <p class="feedback-name">Neves</p>
+                        <a href="https://instagram.com/nevesplaceholder" target="_blank" class="feedback-ig">@nevesplaceholder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="feedback-arrow left" onclick="feedbackSlide(-1)">&#10094;</button>
+        <button class="feedback-arrow right" onclick="feedbackSlide(1)">&#10095;</button>
+    </div>
+    <div class="feedback-dots" id="feedbackDots"></div>
+</section>
+
+<!-- HALL DA FAMA -->
+<section id="hall-fama" class="hall-section">
+    <div class="hall-bg"></div>
+    <div class="section-header">
+        <p class="section-label">Reconhecimento</p>
+        <h2 class="section-title">HALL DA FAMA</h2>
+        <p class="section-sub">Nossos melhores clientes e parceiros que fazem parte da lenda Kamisuke</p>
+    </div>
+
+    <div class="hall-grid">
+        <div class="hall-card featured">
+            <div class="hall-rank">#1</div>
+            <div class="hall-avatar">
+                <img src="Imagens/--pedro (1).png" alt="Pedro" onerror="this.style.display='none';this.parentElement.textContent='P'">
+            </div>
+            <div class="hall-crown">&#9812;</div>
+            <h3>Pedro Elias</h3>
+            <p class="hall-title">Lendário Colecionador</p>
+            <a href="https://instagram.com/pedroplaceholder" target="_blank" class="hall-ig">@pedroplaceholder</a>
+            <div class="hall-badges">
+                <span class="hall-badge">5 Cartas</span>
+                <span class="hall-badge gold">VIP</span>
+            </div>
+        </div>
+
+        <div class="hall-card">
+            <div class="hall-rank">#2</div>
+            <div class="hall-avatar letter">R</div>
+            <h3>Ricardo Atk</h3>
+            <p class="hall-title">Guerreiro das Cartas</p>
+            <a href="https://instagram.com/ricardoplaceholder" target="_blank" class="hall-ig">@ricardoplaceholder</a>
+            <div class="hall-badges">
+                <span class="hall-badge">4 Cartas</span>
+                <span class="hall-badge silver">Elite</span>
+            </div>
+        </div>
+
+        <div class="hall-card">
+            <div class="hall-rank">#3</div>
+            <div class="hall-avatar letter">J</div>
+            <h3>Jassone</h3>
+            <p class="hall-title">Mestre Colecionador</p>
+            <a href="https://instagram.com/jassoneplaceholder" target="_blank" class="hall-ig">@jassoneplaceholder</a>
+            <div class="hall-badges">
+                <span class="hall-badge">3 Cartas</span>
+                <span class="hall-badge bronze">Pro</span>
+            </div>
+        </div>
+
+        <div class="hall-card">
+            <div class="hall-rank">#4</div>
+            <div class="hall-avatar letter">T</div>
+            <h3>Thalita</h3>
+            <p class="hall-title">Colecionadora Fiel</p>
+            <a href="https://instagram.com/thalitaplaceholder" target="_blank" class="hall-ig">@thalitaplaceholder</a>
+            <div class="hall-badges">
+                <span class="hall-badge">2 Cartas</span>
+            </div>
+        </div>
+
+        <div class="hall-card">
+            <div class="hall-rank">#5</div>
+            <div class="hall-avatar letter">K</div>
+            <h3>Kael</h3>
+            <p class="hall-title">Colecionador Dedicado</p>
+            <a href="https://instagram.com/kaelplaceholder" target="_blank" class="hall-ig">@kaelplaceholder</a>
+            <div class="hall-badges">
+                <span class="hall-badge">2 Cartas</span>
+            </div>
+        </div>
+
+        <div class="hall-card partner-hall">
+            <div class="hall-partner-label">Parceiro</div>
+            <div class="hall-avatar">
+                <img src="Imagens/logo-drinks.jpg" alt="Masuke Drinks" onerror="this.style.display='none';this.parentElement.textContent='MD'">
+            </div>
+            <h3>Masuke Drinks</h3>
+            <p class="hall-title">Parceiro Oficial</p>
+            <a href="https://instagram.com/masukedrinks" target="_blank" class="hall-ig">@masukedrinks</a>
+            <div class="hall-badges">
+                <span class="hall-badge gold">Parceiro</span>
+            </div>
+        </div>
+
+        <div class="hall-card partner-hall">
+            <div class="hall-partner-label">Parceiro</div>
+            <div class="hall-avatar">
+                <img src="Imagens/logo-mdal.jpg" alt="MDAL" onerror="this.style.display='none';this.parentElement.textContent='MD'">
+            </div>
             <h3>MDAL</h3>
-            <a href="https://instagram.com/masukemdal" target="_blank">@masukemdal</a>
+            <p class="hall-title">Parceiro Oficial</p>
+            <a href="https://instagram.com/masukemdal" target="_blank" class="hall-ig">@masukemdal</a>
+            <div class="hall-badges">
+                <span class="hall-badge gold">Parceiro</span>
+            </div>
         </div>
 
-        <div class="partner-card">
-            <img src="Imagens/logo-burguer.jpg" alt="MDAL Burguer">
+        <div class="hall-card partner-hall">
+            <div class="hall-partner-label">Parceiro</div>
+            <div class="hall-avatar">
+                <img src="Imagens/logo-burguer.jpg" alt="MDAL Burguer" onerror="this.style.display='none';this.parentElement.textContent='MB'">
+            </div>
             <h3>MDAL Burguer</h3>
-            <a href="https://instagram.com/mdalburguer" target="_blank">@mdalburguer</a>
+            <p class="hall-title">Parceiro Oficial</p>
+            <a href="https://instagram.com/mdalburguer" target="_blank" class="hall-ig">@mdalburguer</a>
+            <div class="hall-badges">
+                <span class="hall-badge gold">Parceiro</span>
+            </div>
         </div>
-
-        <div class="partner-card">
-            <img src="Imagens/logo-manga.jpg" alt="MDAL Mangá">
-            <h3>MDAL Mangá</h3>
-            <a href="https://instagram.com/mdalmanga" target="_blank">@mdalmanga</a>
-        </div>
-
     </div>
 
-    <div class="sponsor-call">
-        <div class="sponsor-content">
-            <h3>Quer ser nosso Parceiro ou Patrocinador?</h3>
-            <p>Sua marca em destaque no universo dos Card Games! Entre em contato conosco.</p>
-            
-            <a href="https://wa.me/5534998829396?text=Olá! Tenho interesse em ser parceiro/patrocinador da Kamisuke." 
-               class="btn-sponsor" target="_blank">🚀 Fale Conosco</a>
+    <div class="hall-cta">
+        <p>Quer entrar para o Hall da Fama ou ser nosso Parceiro?</p>
+        <a href="https://wa.me/5534998829396?text=Quero%20ser%20parceiro%20da%20Kamisuke!" target="_blank" class="btn-hall-cta">Fale Conosco</a>
+    </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="sobre" class="sobre-section">
+    <div class="sobre-inner">
+        <div class="sobre-visual">
+            <div class="sobre-img-stack">
+                <div class="sobre-img-card card-1">
+                    <img src="Imagens/MasukeDeath.png" alt="Carta Kamisuke">
+                </div>
+                <div class="sobre-img-card card-2">
+                    <img src="Imagens/Drakomyugi.jpeg" alt="Carta Kamisuke">
+                </div>
+                <div class="sobre-img-card card-3">
+                    <img src="Imagens/Shizuke.png" alt="Carta Kamisuke">
+                </div>
+            </div>
+            <div class="sobre-glow"></div>
+        </div>
+
+        <div class="sobre-content">
+            <p class="section-label">Nossa História</p>
+            <h2 class="section-title left">QUEM SOMOS</h2>
+            <div class="sobre-story">
+                <p>Tudo começou com dois amigos, uma mesa de jantar e um sonho enorme: criar cartas colecionáveis tão únicas quanto as histórias que amavam.</p>
+                <p>Mateus e Gabriel cresceram apaixonados por animes, mangás e jogos. Aos fins de semana, passavam horas discutindo sobre poderes, batalhas e os personagens mais lendários. Um dia, olharam um para o outro e pensaram: <em>"E se a gente criasse isso?"</em></p>
+                <p>Assim nasceu a <strong>Kamisuke Card Games</strong>. O que começou como hobby entre amigos rapidamente ganhou vida própria. A primeira carta foi feita para um terceiro amigo como presente de aniversário. A reação foi tão incrível que perceberam que tinham algo especial nas mãos.</p>
+                <p>Hoje, meses depois, já são mais de 500 cartas criadas, centenas de clientes satisfeitos e um universo em constante expansão. Cada carta que sai da Kamisuke carrega um pedaço da paixão que Mateus e Gabriel têm pelo mundo dos animes e card games.</p>
+                <p><strong>Nosso propósito é simples: transformar suas ideias e seus personagens favoritos em lendas colecionáveis.</strong></p>
+            </div>
+            <a href="#custom" class="btn-sobre">Criar Minha Carta</a>
         </div>
     </div>
 </section>
 
-<footer id="contato">
-    <div class="footer-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 40px 5%; background: #111; border-top: 2px solid #ff0000;">
-        
-        <div class="footer-info">
-            <h3>📞 Contatos</h3>
-            <p>WhatsApp: <a href="https://wa.me/5534998829396" style="color: #25d366; text-decoration: none;">(34) 99882-9396</a></p>
-            <p>Email: kamisukecardgames@gmail.com</p>
-        </div>
-
-        <div class="footer-social">
-            <h3>📸 Redes Sociais</h3>
-            <p>Instagram: <a href="https://instagram.com/kamisukecard" target="_blank" style="color: #ff3c3c; text-decoration: none;">@kamisukecard</a></p>
-        </div>
-
-        <div class="footer-about">
-            <h3>⚡ Kamisuke Card Games</h3>
+<!-- FOOTER / CONTATO -->
+<footer id="contato" class="footer">
+    <div class="footer-top">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <img src="Imagens/KAMISUKELOG.jpeg" alt="Kamisuke">
+                <span>KAMISUKE</span>
+            </div>
             <p>Transformando suas ideias em cartas lendárias.</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com/kamisukecard" target="_blank" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    @kamisukecard
+                </a>
+                <a href="https://wa.me/5534998829396" target="_blank" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    (34) 99882-9396
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Navegação</h4>
+            <a href="#hero">Home</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#custom">Personalizados</a>
+            <a href="#feedbacks">Clientes</a>
+            <a href="#hall-fama">Hall da Fama</a>
+            <a href="#sobre">Sobre</a>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contato</h4>
+            <p>WhatsApp: <a href="https://wa.me/5534998829396">(34) 99882-9396</a></p>
+            <p>Email: kamisukecardgames@gmail.com</p>
+            <p>Instagram: <a href="https://instagram.com/kamisukecard" target="_blank">@kamisukecard</a></p>
+            <a href="https://wa.me/5534998829396?text=Ol%C3%A1!%20Quero%20comprar%20uma%20carta!" class="btn-footer-cta" target="_blank">Fazer Pedido</a>
         </div>
     </div>
-    
-    <div class="copy" style="text-align: center; padding: 20px; background: #000; color: #555; font-size: 0.8rem;">
-        © 2026 Kamisuke Card Games. Criado por Mateus Marques Ferreira.
+
+    <div class="footer-bottom">
+        <p>© 2026 Kamisuke Card Games. Criado por Mateus Marques Ferreira.</p>
     </div>
 </footer>
 
